@@ -781,54 +781,20 @@
                                                                     </Style.Triggers>
                                                                 </Style>
                                                             </Border.Style>
-                                                            <DockPanel Margin="30,30,30,30" Focusable="False">
-                                                            <Border
-                                                                x:Name="DescriptionContainer"
-                                                                Height="440"
-                                                                ClipToBounds="True">
-                                                                <Canvas>
-                                                                <Canvas.RenderTransform>
-                                                                    <ScaleTransform ScaleY="-1" CenterY="220" />
-                                                                </Canvas.RenderTransform>
-                                                                <HtmlTextView x:Name="PART_HtmlDescription" Height="Auto"
-                                                                              Width="{Binding ActualWidth, ElementName=DescriptionContainer}"
-                                                                              HtmlFontSize="18"
-                                                                              HtmlFontFamily="Segeo UI Light"
-                                                                              HtmlForeground="{DynamicResource TextColor}"
-                                                                              LinkForeground="{DynamicResource GlyphColor}"
-                                                                              FocusVisualStyle="{x:Null}"
-                                                                              Focusable="False">
-                                                                    <HtmlTextView.RenderTransform>
-                                                                        <TransformGroup>
-                                                                            <ScaleTransform ScaleY="-1" CenterY="0" />
-                                                                            <TranslateTransform x:Name="TextScrollTransform" Y="{Binding ActualHeight, ElementName=DescriptionContainer}" />
-                                                                        </TransformGroup>
-                                                                    </HtmlTextView.RenderTransform>
-
-                                                                    <HtmlTextView.Triggers>
-                                                                        <!-- Start scrolling when the element is focused -->
-                                                                        <EventTrigger RoutedEvent="GotFocus">
-                                                                            <BeginStoryboard Name="ScrollStoryboard">
-                                                                                <Storyboard RepeatBehavior="Forever">
-                                                                                    <DoubleAnimation
-                                                                                        Storyboard.TargetName="TextScrollTransform"
-                                                                                        Storyboard.TargetProperty="Y"
-                                                                                        From="{Binding ActualHeight, ElementName=DescriptionContainer}"
-                                                                                        To="{Binding ActualHeight, ElementName=PART_HtmlDescription}"
-                                                                                        Duration="0:0:35"
-                                                                                        BeginTime="0:0:03" />
-                                                                                </Storyboard>
-                                                                            </BeginStoryboard>
-                                                                        </EventTrigger>
-
-                                                                        <!-- Stop scrolling and reset when focus is lost -->
-                                                                        <EventTrigger RoutedEvent="LostFocus">
-                                                                            <StopStoryboard BeginStoryboardName="ScrollStoryboard" />
-                                                                        </EventTrigger>
-                                                                    </HtmlTextView.Triggers>
-                                                                </HtmlTextView>
-                                                                </Canvas>
-                                                            </Border>
+                                                            <DockPanel Margin="30,30,30,30" FocusVisualStyle="{x:Null}" Focusable="False">
+                                                                <ScrollViewerEx
+                                                                    x:Name="PART_ScrollHtmlDescription"
+                                                                    Height="440"
+                                                                    VerticalScrollBarVisibility="Hidden"
+                                                                    HorizontalScrollBarVisibility="Disabled">
+                                                                    <HtmlTextView
+                                                                        x:Name="PART_HtmlDescription"
+                                                                        FocusVisualStyle="{x:Null}"
+                                                                        HtmlFontFamily="Segoe UI Light"
+                                                                        HtmlFontSize="18"
+                                                                        HtmlForeground="{DynamicResource TextColor}"
+                                                                        LinkForeground="{DynamicResource GlyphColor}" />
+                                                                </ScrollViewerEx>
                                                             </DockPanel>
                                                         </Border>
                                                     </StackPanel>

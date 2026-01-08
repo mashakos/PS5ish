@@ -57,7 +57,7 @@
     <sys:Boolean x:Key="Trailers">true</sys:Boolean>
 
     <!--MicroVideoBackgrounds-->
-    <sys:Boolean x:Key="MicroVideoBackgrounds">false</sys:Boolean>
+    <sys:Boolean x:Key="MicroVideoBackgrounds">true</sys:Boolean>
 
     <!--TrailerVideoBackgrounds-->
     <sys:Boolean x:Key="TrailerVideoBackgrounds">false</sys:Boolean>
@@ -381,22 +381,22 @@
     <!--VideoBackgrounds-->
     <Style x:Key="VideoBackground" TargetType="Grid">
         <Setter Property="Visibility" Value="Visible"/>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="false">
-                <Setter Property="Visibility" Value="Collapsed"/>
-            </DataTrigger>
-            <DataTrigger Binding="{Binding ElementName=PART_ListGameItems, Path=IsKeyboardFocusWithin}" Value="True">
-                <DataTrigger.EnterActions>
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" BeginTime="0:0:0" Duration="0:0:0.5"/>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:11.5" Duration="0:0:0.5"/>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="0" BeginTime="0:0:12" Duration="0:0:6"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </DataTrigger.EnterActions>
-            </DataTrigger>
-        </Style.Triggers>
+<!--         <Style.Triggers> -->
+<!--             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="false"> -->
+<!--                 <Setter Property="Visibility" Value="Collapsed"/> -->
+<!--             </DataTrigger> -->
+<!--             <DataTrigger Binding="{Binding ElementName=PART_ListGameItems, Path=IsKeyboardFocusWithin}" Value="True"> -->
+<!--                 <DataTrigger.EnterActions> -->
+<!--                     <BeginStoryboard> -->
+<!--                         <Storyboard RepeatBehavior="Forever"> -->
+<!--                             <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" BeginTime="0:0:0" Duration="0:0:0.5"/> -->
+<!--                             <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" BeginTime="0:0:11.5" Duration="0:0:0.5"/> -->
+<!--                             <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="0" BeginTime="0:0:12" Duration="0:0:6"/> -->
+<!--                         </Storyboard> -->
+<!--                     </BeginStoryboard> -->
+<!--                 </DataTrigger.EnterActions> -->
+<!--             </DataTrigger> -->
+<!--         </Style.Triggers> -->
     </Style>
 
 
@@ -477,7 +477,7 @@
                         <Storyboard>
                             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
                                 <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0" />
-                                <SplineThicknessKeyFrame KeyTime="00:00:00.3" Value="-6" />
+                                <SplineThicknessKeyFrame KeyTime="00:00:00.3" Value="-2" />
                             </ThicknessAnimationUsingKeyFrames>
                             <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" BeginTime="0:0:0.1" Duration="0:0:0.3" />
                             <DoubleAnimation Storyboard.TargetProperty="(Border.BorderBrush).(Brush.RelativeTransform).(RotateTransform.Angle)" 

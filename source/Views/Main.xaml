@@ -115,7 +115,7 @@
                                                             <Binding RelativeSource="{RelativeSource Self}" Path="Tag" />
                                                             <Binding Source="\ExtraMetadata\games\"/>
                                                             <Binding Path="SelectedGame.Id"/>
-                                                            <Binding Source="\VideoMicroTrailer.mp4" />
+                                                            <Binding Source="\VideoTrailer.mp4" />
                                                         </MultiBinding>
                                                     </Setter.Value>
                                                 </Setter>
